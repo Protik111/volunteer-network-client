@@ -1,0 +1,16 @@
+.event-container{
+    float: left;
+    position: relative;
+}
+.root-container{
+    margin-left: 170px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.event-container2 h6{
+    color: white;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 0px;
+}
