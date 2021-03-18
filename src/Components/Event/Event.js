@@ -1,5 +1,6 @@
 import React from 'react';
 import '../Event/Event.css';
+import { Link } from 'react-router-dom';
 
 const Event = (props) => {
     const {id, name, img} = props.event;
@@ -21,13 +22,16 @@ const Event = (props) => {
         borderRadius: '10px'
     }
     return (
-        <div className="root-container justify-content-center">
-            <div className="col-md-2 event-container" style={sectionStyle}>
-                <div className="title2 event-container2">
-                    <h6 style={titleStyle}>{name}</h6>
+        <Link to ="/registration">
+            <div className="root-container justify-content-center">
+                <div className="col-md-2 event-container" style={sectionStyle}>
+                    <div className="title2 event-container2">
+                        <h6 style={titleStyle}>{name}</h6>
+                    </div>
                 </div>
             </div>
-        </div>
+        </Link>
+       
     );
 };
 

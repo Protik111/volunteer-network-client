@@ -6,19 +6,35 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import Registration from './Components/Registration/Registration';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import Login from './Components/Login/Login';
+import { createContext } from 'react';
+import { useState } from 'react';
+
+export const UserContext = createContext();
 
 function App() {
+  const [loggedInUser, setLoggedInUser] = useState({});
   return (
-    <Router>
-      <Switch>
-      <Route exaxt path="/">
-          <Home></Home>
-        </Route>
-        <Route path="/home">
-          <Home></Home>
-        </Route>
-      </Switch>
-    </Router>
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Home></Home>
+          </Route>
+          <Route path="/home">
+            <Home></Home>
+          </Route>
+          <PrivateRoute path="/registration">
+            <Registration></Registration>
+          </PrivateRoute>
+          <Route path="/login">
+            <Login></Login>
+          </Route>
+        </Switch>
+      </Router>
+    </UserContext.Provider>
   );
 }
 

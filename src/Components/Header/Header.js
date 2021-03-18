@@ -2,6 +2,7 @@ import React from 'react';
 import { Nav, Button, Form, FormControl } from 'react-bootstrap';
 import '../Header/Header.css';
 import logo from '../../logos/Group1329.png';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
