@@ -5,6 +5,7 @@ import logo from '../../logos/Group1329.png';
 import { UserContext } from '../../App';
 import { useContext } from 'react';
 import '../UserInfo/UserInfo.css';
+import UserInfoStyle from '../UserInfoStyle/UserInfoStyle';
 
 const UserInfo = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
@@ -16,7 +17,7 @@ const UserInfo = () => {
         .then(data => setEvent(data));
     }, [])
     return (
-        <div>
+        <div className="container-root">
             <div className="col-md-12">
                 <Nav className="justify-content-end" id="menu" activeKey="/home">
                         <div className="col-md-6">
@@ -40,9 +41,8 @@ const UserInfo = () => {
                 </Nav>
             </div>
             <div className="userContainer">
-                <h1>{event.length}</h1>
                 {
-                    event.map(evnt => <p>{evnt.name}</p>)
+                    event.map(evnt => <UserInfoStyle evnt={evnt}></UserInfoStyle>)
                 }
             </div>
         </div>

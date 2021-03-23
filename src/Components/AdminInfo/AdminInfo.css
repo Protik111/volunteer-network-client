@@ -1,0 +1,27 @@
+.volunteer-container{
+    display: flex;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+.list-name{
+    margin: 10px;
+    /* padding-left: 20px; */
+    margin-top: 30px;
+    border: 1px solid gray;
+    border-radius: 7px;
+
+}
+.list-name h5{
+    padding-left: 70px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.email{
+    margin-left: 20px;
+}
+.date{
+    margin-left: 70px;
+}
+.description{
+    margin-left: 75px;
+}

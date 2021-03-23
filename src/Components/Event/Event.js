@@ -22,7 +22,7 @@ const Event = (props) => {
         borderRadius: '10px'
     }
     return (
-        <Link to ="/registration">
+        <Link to ={`/registration/${id}`}>
             <div className="root-container justify-content-center">
                 <div className="col-md-2 event-container" style={sectionStyle}>
                     <div className="title2 event-container2">

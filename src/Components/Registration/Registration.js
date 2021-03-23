@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import '../Registration/Registration.css';
@@ -7,7 +7,8 @@ import { useContext } from 'react';
 import { UserContext } from '../../App';
 import { useState } from 'react';
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import data from '../FakeData/FakeData.json';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,6 +33,14 @@ const Registration = () => {
 
     const classes = useStyles();
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const {id} = useParams();
+    const [items] = useState(data);
+    const [item, setItem] = useState([]);
+
+    useEffect(() => {
+      const newItem = items.find(it => it.id === parseInt(id));
+      setItem(newItem);
+    }, [])
 
     // const n = new Date();
     // const y = n.getFullYear();
@@ -52,7 +61,7 @@ const Registration = () => {
         name: loggedInUser.name,
         email: loggedInUser.email,
         date: date,
-        description: value,
+        description: item.name,
       }
       // const newUser = {...users};
       // newUser[e.target.name] = e.target.value;
@@ -81,7 +90,7 @@ const Registration = () => {
                     <br/>
                     <TextField style = {{width: 300}} id="standard-secondary" name="date" label="Date" color="secondary" value={date.toDateString()}/>
                     <br/>
-                    <TextField onChange={handleChange} style = {{width: 300}} id="standard-secondary" name="description" label="Description" color="secondary" />  
+                    <TextField onChange={handleChange} style = {{width: 300}} id="standard-secondary" name="description" value={item.name} label="Description" color="secondary" />  
                 </form>
                 <Link to={`/usersInfo`}>
                       <input onClick={handleEvent} className="reg-btn" type="submit" value="Registration"/>

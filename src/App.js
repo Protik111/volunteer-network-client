@@ -12,6 +12,7 @@ import Login from './Components/Login/Login';
 import { createContext } from 'react';
 import { useState } from 'react';
 import UserInfo from './Components/UserInfo/UserInfo';
+import AdminInfo from './Components/AdminInfo/AdminInfo';
 
 export const UserContext = createContext();
 
@@ -27,7 +28,7 @@ function App() {
           <Route path="/home">
             <Home></Home>
           </Route>
-          <PrivateRoute path="/registration">
+          <PrivateRoute path="/registration/:id">
             <Registration></Registration>
           </PrivateRoute>
           <Route path="/login">
@@ -37,6 +38,9 @@ function App() {
             <UserInfo></UserInfo>
           </Route>
         </Switch>
+        <Route path="/showAdmin">
+          <AdminInfo></AdminInfo>
+        </Route>
       </Router>
     </UserContext.Provider>
   );

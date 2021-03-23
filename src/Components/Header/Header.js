@@ -2,8 +2,20 @@ import React from 'react';
 import { Nav, Button, Form, FormControl } from 'react-bootstrap';
 import '../Header/Header.css';
 import logo from '../../logos/Group1329.png';
+import { Link } from 'react-router-dom';
+// import fakeData from '../FakeData/FakeData.json';
 
 const Header = () => {
+    //inserting bulk data to Db
+    const handleEvent = () =>{
+        fetch('http://localhost:5000/sendEventToDb', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(fakeData)
+        })
+    }
     return (
         <>
         <div className="col-md-12">
@@ -25,7 +37,9 @@ const Header = () => {
                 </Nav.Item>
                 <Nav.Item className="menu-btn">
                     <Button variant="primary">Registor</Button>
-                    <Button variant="dark">Admin</Button>
+                    <Link to="/showAdmin">
+                        <Button variant="dark">Admin</Button>
+                    </Link>
                 </Nav.Item>
             </Nav>
         </div>

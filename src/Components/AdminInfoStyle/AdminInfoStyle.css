@@ -1,0 +1,15 @@
+.list{
+    display: flex;
+    list-style: none;
+    font-size: large;
+    /* padding: 10px; */
+    /* border : 1px solid gray; */
+}
+.list li{
+    padding: 10px;
+}
+.btn-dlt{
+    /* background-color: red; */
+    border: none;
+    /* border-radius: 50%; */
+}
