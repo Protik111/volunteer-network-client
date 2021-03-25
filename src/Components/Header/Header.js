@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 const Header = () => {
     //inserting bulk data to Db
     const handleEvent = () =>{
-        fetch('http://localhost:5000/sendEventToDb', {
+        fetch('https://serene-tor-03619.herokuapp.com/sendEventToDb', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

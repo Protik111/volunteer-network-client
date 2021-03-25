@@ -7,15 +7,17 @@ const AdminInfoStyle = (props) => {
     const [event, setEvent] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/showAllEvens')
+        fetch('https://serene-tor-03619.herokuapp.com/showAllEvens')
             .then(res => res.json())
             .then(data => setEvent(data));
     }, [])
 
-    const {name, email, date, description} = props.ev;
-    const handleDelete = (id) => {
-        // console.log(description);
-        fetch(`/delete/${id}`, {
+    const {_id, name, email, date, description} = props.ev;
+    // // const newId = id.toString();
+    // console.log(_id, name);
+    const handleDelete = () => {
+        // console.log(id);
+        fetch(`/delete/${_id}`, {
             method: 'DELETE'
         })
         .then(res => res.json())
@@ -30,7 +32,7 @@ const AdminInfoStyle = (props) => {
                 <li><small>{email}</small></li>
                 <li><small>{date}</small></li>
                 <li><small>{description}</small></li>
-                <button onClick={handleDelete(event.id)} className="btn-dlt"><DeleteIcon></DeleteIcon></button>
+                <button onClick={handleDelete} className="btn-dlt"><DeleteIcon></DeleteIcon></button>
             </ul>
         </div>
     );

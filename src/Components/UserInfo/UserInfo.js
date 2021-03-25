@@ -12,7 +12,7 @@ const UserInfo = () => {
     const [event, setEvent] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/showEvent?email='+loggedInUser.email)
+        fetch('https://serene-tor-03619.herokuapp.com/showEvent?email='+loggedInUser.email)
         .then(res => res.json())
         .then(data => setEvent(data));
     }, [])

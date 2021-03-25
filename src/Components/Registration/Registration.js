@@ -58,6 +58,7 @@ const Registration = () => {
 
     const handleEvent = () => {
       const newUser = {
+        img : 'https://i.ibb.co/QJ5jBMv/extra-Volunteer.png',
         name: loggedInUser.name,
         email: loggedInUser.email,
         date: date,
@@ -66,7 +67,7 @@ const Registration = () => {
       // const newUser = {...users};
       // newUser[e.target.name] = e.target.value;
       // setUsers(newUser);
-      fetch('http://localhost:5000/sendEvent', {
+      fetch('https://serene-tor-03619.herokuapp.com/sendEvent', {
         method : 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(newUser)

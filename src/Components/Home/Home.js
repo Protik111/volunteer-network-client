@@ -5,7 +5,7 @@ import Event from '../Event/Event';
 const Home = () => {
     const [item, setItem] = useState([]);
     useEffect(()=> {
-        fetch('http://localhost:5000/showEventFromDb')
+        fetch('https://serene-tor-03619.herokuapp.com/showEventFromDb')
         .then(res => res.json())
         .then(data => setItem(data))
     }, [])

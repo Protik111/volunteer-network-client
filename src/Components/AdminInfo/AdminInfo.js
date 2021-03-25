@@ -8,7 +8,7 @@ const AdminInfo = () => {
     const [event, setEvent] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/showAllEvens')
+        fetch('https://serene-tor-03619.herokuapp.com/showAllEvens')
             .then(res => res.json())
             .then(data => setEvent(data));
     }, [])
